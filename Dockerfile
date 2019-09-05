@@ -1,10 +1,12 @@
-FROM ubuntu
-MAINTAINER "jagadish Manchala"
+FROM alpine
+MAINTAINER "Olaxe"
 #Install git
-RUN apt update        
-RUN apt install -y git
-RUN mkdir /home/sampleTest
-RUN cd /home/sampleTest
-RUN git clone https://github.com/wikimedia/mediawiki-extensions-CheckUser
+RUN apk update && apk upgrade        
+RUN apk add --no-cache git
+RUN mkdir /github
+VOLUME /github
+
 #Set working directory
-WORKDIR /home/sampleTest
+WORKDIR /github
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
