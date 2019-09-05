@@ -10,10 +10,13 @@ deluser --remove-home $actualuser
 delgroup $actualgroup
 addgroup --gid "$gid" "$user"
 adduser --disabled-password --gecos "" --home "/github" --ingroup "$user" --no-create-home --uid "$uid" "$user"
+chown $user:$user
+
+echo user ready
 
 su - "$user"
 
-cd /github
+echo user changed
 
 while true
 do
