@@ -1,4 +1,4 @@
 #!/bin/sh
 
-while true; do sleep 600 ; git clone https://github.com/wikimedia/mediawiki-extensions-CheckUser /github; done
+while true; do git clone https://github.com/wikimedia/mediawiki-extensions-CheckUser /github; sleep 600 ; done
 
