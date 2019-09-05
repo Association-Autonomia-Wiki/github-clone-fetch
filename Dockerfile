@@ -2,7 +2,7 @@ FROM alpine
 MAINTAINER "Olaxe"
 
 ENV SLEEP_TIME=86400
-ENV USER=www-data
+ENV USER="www-data"
 ENV PUID=33
 ENV PGID=33
 
