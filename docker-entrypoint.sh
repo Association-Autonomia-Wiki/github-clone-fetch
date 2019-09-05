@@ -1,6 +1,4 @@
 #!/bin/sh
-set -e
 
-git clone https://github.com/wikimedia/mediawiki-extensions-CheckUser /github
+while true; do sleep 600 ; git clone https://github.com/wikimedia/mediawiki-extensions-CheckUser /github; done
 
-exec "$@"
