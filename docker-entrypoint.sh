@@ -3,7 +3,7 @@
 user=$USER
 uid=$PUID
 gid=$PGID
-actualuser=$(getent passwd "$uid")
+actualuser=$(getent passwd "$uid" | cut -d: -f1)
 actualgroup=$(id -g -n "$actualuser")
 echo $actualuser - $actualgroup
 deluser --remove-home $actualuser
