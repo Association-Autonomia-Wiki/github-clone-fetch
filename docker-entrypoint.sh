@@ -3,9 +3,13 @@
 user=$USER
 uid=$PUID
 gid=$PGID
-
+actualuser=$(getent passwd | awk -F: '$3 == $PUID { print $1 }')
+actualgroup=$(id -g -n "$actualuser")
+echo $actualuser - $actualgroup
+userdel -r -f $actualuser
+groupdel $actualgroup
 addgroup --gid "$GID" "$USER"
-adduser --disabled-password --gecos "" --home "/github" --ingroup "$USER" --uid "$UID" "$USER"
+adduser --disabled-password --gecos "" --home "/github" --ingroup "$USER" --no-create-home --uid "$UID" "$USER"
 
 su - "$USER"
 
