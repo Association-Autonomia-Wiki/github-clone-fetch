@@ -4,10 +4,12 @@ user=$USER
 uid=$PUID
 gid=$PGID
 
-cd /github
-
 addgroup --gid "$GID" "$USER"
-adduser --disabled-password --gecos "" --home "$(pwd)" --ingroup "$USER" --no-create-home --uid "$UID" "$USER"
+adduser --disabled-password --gecos "" --home "/github" --ingroup "$USER" --uid "$UID" "$USER"
+
+su - "$USER"
+
+cd /github
 
 while true
 do
