@@ -1,5 +1,7 @@
 FROM alpine
 MAINTAINER "Olaxe"
+
+ENV SLEEP_TIME=86400
 #Install git
 RUN apk update && apk upgrade        
 RUN apk add --no-cache git
