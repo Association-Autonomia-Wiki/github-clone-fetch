@@ -2,5 +2,18 @@
 
 cd /github
 
-while true; do git -C $GITHUB_NAME_1 pull || git clone $GITHUB_URL_1 $GITHUB_NAME_1; sleep $SLEEP_TIME ; done
+while true
+do
+  n=1
+  name="GITHUB_NAME_${n}"
+  echo $name
+  url="GITHUB_URL_${n}"
+  echo $url
+  while [! -z "$name" ]
+  do
+    git -C $name pull || git clone $url $name
+    ((n++))
+  done
+  sleep $SLEEP_TIME
+done
 
