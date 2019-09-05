@@ -13,7 +13,7 @@ do
   do
     echo $name - $url
     git -C $name pull || git clone $url $name
-    ((n++))
+    n=$((n+1))
     name="GITHUB_NAME_${n}"
     eval name=\$$name
     url="GITHUB_URL_${n}"
