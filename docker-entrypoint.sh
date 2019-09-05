@@ -8,10 +8,10 @@ actualgroup=$(id -g -n "$actualuser")
 echo $actualuser - $actualgroup
 deluser --remove-home $actualuser
 delgroup $actualgroup
-addgroup --gid "$GID" "$USER"
-adduser --disabled-password --gecos "" --home "/github" --ingroup "$USER" --no-create-home --uid "$UID" "$USER"
+addgroup --gid "$gid" "$user"
+adduser --disabled-password --gecos "" --home "/github" --ingroup "$user" --no-create-home --uid "$uid" "$user"
 
-su - "$USER"
+su - "$user"
 
 cd /github
 
