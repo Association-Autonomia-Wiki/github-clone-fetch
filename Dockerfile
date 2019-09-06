@@ -16,4 +16,5 @@ VOLUME /github
 #Set working directory
 WORKDIR /github
 COPY docker-entrypoint.sh /entrypoint.sh
+COPY github-loop.sh /github-loop.sh
 ENTRYPOINT ["/entrypoint.sh"]
