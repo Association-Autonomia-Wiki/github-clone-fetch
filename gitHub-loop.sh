@@ -1,6 +1,6 @@
+#!/bin/sh
 
-
-echo user $user changed
+echo user $USER changed
 
 while true
 do
