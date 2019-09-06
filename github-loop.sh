@@ -2,6 +2,8 @@
 
 echo user $USER changed
 
+cd /github
+
 while true
 do
   n=1
