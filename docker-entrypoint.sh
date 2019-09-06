@@ -14,6 +14,6 @@ chown $user:$user /github
 chown $user:$user /github-loop.sh
 chmod +x /github-loop.sh
 
-echo user ready
+echo user $user is ready to be used
 
 su-exec "$PUID" /github-loop.sh
