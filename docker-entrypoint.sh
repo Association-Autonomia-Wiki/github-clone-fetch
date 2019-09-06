@@ -11,30 +11,9 @@ delgroup $actualgroup
 addgroup --gid "$gid" "$user"
 adduser --disabled-password --gecos "" --home "/github" --ingroup "$user" --no-create-home --uid "$uid" "$user"
 chown $user:$user /github
+chown $user:$user /github-loop.sh
+chmod +x /github-loop.sh
 
 echo user ready
 
-su - "$user"
-
-echo user changed
-
-while true
-do
-  n=1
-  name="GITHUB_NAME_${n}"
-  eval name=\$$name
-  url="GITHUB_URL_${n}"
-  eval url=\$$url
-  while [ ! -z ${name} ]
-  do
-    echo $name - $url
-    git -C $name pull || git clone $url $name
-    n=$((n+1))
-    name="GITHUB_NAME_${n}"
-    eval name=\$$name
-    url="GITHUB_URL_${n}"
-    eval url=\$$url
-  done
-  sleep $SLEEP_TIME
-done
-
+su-exec "$PUID" /github-loop.sh
