@@ -9,6 +9,7 @@ ENV PGID=33
 #Install git
 RUN apk update && apk upgrade        
 RUN apk add --no-cache git
+RUN apk add --no-cache su-exec
 RUN mkdir /github
 VOLUME /github
 
