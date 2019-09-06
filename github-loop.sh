@@ -18,9 +18,9 @@ do
     echo $name - $url
     if [ -z ${branch} ]
     then
-      git -v -C $name pull || git clone -v $url $name
+      git -C $name pull -v || git clone -v $url $name
     else
-      git -v -C $name pull || git clone -v -b $branch $url $name
+      git -C $name pull -v || git clone -v -b $branch $url $name
     fi
     n=$((n+1))
     name="GITHUB_NAME_${n}"
